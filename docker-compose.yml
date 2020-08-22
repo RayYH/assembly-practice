@@ -1,0 +1,10 @@
+version: '3'
+services:
+  bash:
+    image: rayyounghong/ubuntu-assembly:latest
+    container_name: assembly-practice
+    volumes:
+      - .:/code
+    working_dir: /code/src
+    tty: true
+    stdin_open: true
