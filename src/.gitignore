@@ -1,3 +1,4 @@
-*
-!**/*.asm
-!**/Makefile
+*/*
+!*/*.asm
+!*/Makefile
+!*/*.md
