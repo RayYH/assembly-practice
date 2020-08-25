@@ -127,7 +127,7 @@ Where `X` and `Y` are actually invisible characters (with numerical values `0xA=
 
 `$` means the current address according to the assembler, `$ - msg` is the current address of the assembler minus the address of `msg`, which would be the length of the string.
 
-## More Reading
+## More Readings
 
 + [Assembly - Basic Syntax](https://www.tutorialspoint.com/assembly_programming/assembly_basic_syntax.htm)
 + [System calls](https://www.tutorialspoint.com/assembly_programming/assembly_system_calls.htm)

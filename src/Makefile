@@ -1,4 +1,4 @@
-DIRS = basic-syntax
+DIRS = basic-syntax memory-segments registers
 
 all:
 	for i in $(DIRS); do \
