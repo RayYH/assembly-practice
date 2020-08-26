@@ -1,4 +1,5 @@
-DIRS = basic-syntax memory-segments registers system-calls addressing-modes
+DIRS = basic-syntax memory-segments registers system-calls addressing-modes \
+	constants arithmetic-instructions
 
 all:
 	for i in $(DIRS); do \

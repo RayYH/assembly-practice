@@ -9,6 +9,9 @@ This repo uses NASM assembler. Notes and source code are mostly from [Assembly T
 + [Registers](src/registers/README.md)
 + [System Calls](src/system-calls/README.md)
 + [Addressing Modes](src/addressing-modes/README.md)
++ [Variables](src/variables/README.md)
++ [Constants](src/constants/README.md)
++ [Arithmetic Instructions](src/arithmetic-instructions/README.md)
 
 ## Run
 

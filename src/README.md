@@ -5,3 +5,6 @@
 + [Registers](registers/README.md)
 + [System Calls](system-calls/README.md)
 + [Addressing Modes](addressing-modes/README.md)
++ [Variables](variables/README.md)
++ [Constants](constants/README.md)
++ [Arithmetic Instructions](arithmetic-instructions/README.md)
