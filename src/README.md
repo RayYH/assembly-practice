@@ -8,3 +8,4 @@
 + [Variables](variables/README.md)
 + [Constants](constants/README.md)
 + [Arithmetic Instructions](arithmetic-instructions/README.md)
++ [Logical Instructions](logical-instructions/README.md)
