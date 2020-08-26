@@ -29,7 +29,7 @@ _start:
 
 segment	.data
     msg db 'Displaying 9 stars:', 0xa
-    len equ $ - msg
+    len equ $-msg
     ; loop count
     count equ 9
     ; use times to generate a repeated string

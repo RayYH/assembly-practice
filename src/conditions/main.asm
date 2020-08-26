@@ -7,14 +7,14 @@ _start:
     ; compare num1 & num2
     cmp ecx, [num2]
     ; if num1 > num2, jump to check_third_num
-    jg  check_third_sum
+    jg check_third_sum
     ; else ecx <- num2
     mov ecx, [num2]
 
     check_third_sum:
         cmp ecx, [num3]
         ; if ecx > num3, jump to _exit
-        jg  _exit
+        jg _exit
         ; else ecx <- num3
         mov ecx, [num3]
 
@@ -45,9 +45,9 @@ _start:
 
 section .data
     msg db "The largest digit is: "
-    len equ $ - msg
+    len equ $-msg
     newLine db 0xA, 0xD
-    newLineLen equ $ - newLine
+    newLineLen equ $-newLine
     num1 dd '47'
     num2 dd '22'
     num3 dd '31'

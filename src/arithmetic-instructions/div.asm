@@ -3,7 +3,7 @@ section	.text
 
 _start:
     ; ax <- 9
-    mov	ax,'9'
+    mov	ax, '9'
     sub ax, '0'
 
     ; bl <- 4

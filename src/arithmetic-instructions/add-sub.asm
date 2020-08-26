@@ -1,8 +1,9 @@
-SYS_EXIT  equ 1
-SYS_READ  equ 3
+; sys calls
+STDIN equ 0
+STDOUT equ 1
+SYS_EXIT equ 1
+SYS_READ equ 3
 SYS_WRITE equ 4
-STDIN     equ 0
-STDOUT    equ 1
 
 segment .data
     msg1 db "Enter a digit (0~4)", 0xA, 0xD
@@ -17,7 +18,7 @@ segment .data
 segment .bss
     num1 resb 2
     num2 resb 2
-    res  resb 1
+    res resb 1
 
 section	.text
     global _start

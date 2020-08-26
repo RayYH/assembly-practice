@@ -12,5 +12,5 @@ _start:
     int	0x80
 
 segment	.data
-    msg db 'Hello, world!', 0xa
-    len equ $ - msg
+    msg db 'Hello, world!', 0xA, 0xD
+    len equ $-msg

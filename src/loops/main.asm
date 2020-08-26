@@ -3,6 +3,7 @@ section .text
 
 _start:
     ; since pop and push use 64-bit mode
+    ; we use r*x instead of e*x
     mov rcx, 9
     mov rax, '1'
 
@@ -32,7 +33,7 @@ loop_label:
     int 0x80
 
 section .bss
-    num  resb 1
+    num resb 1
 
 section .data
     newLine db 0xA, 0xD

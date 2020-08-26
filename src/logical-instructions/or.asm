@@ -13,7 +13,7 @@ _start:
     ; 0011
     mov bl, 3
     ; al should be 0111 = 7
-    or  al, bl
+    or al, bl
     add al, byte '0'
 
     mov [result], al
@@ -34,10 +34,10 @@ _start:
     int 0x80
 
 section .data
-    progMsg         db  "5 or 3 is: "
-    progMsgLen      equ $ - progMsg
-    newLineMsg      db  0xA, 0xD
-    newLineMsgLen   equ $ - newLineMsg
+    progMsg db  "5 or 3 is: "
+    progMsgLen equ $-progMsg
+    newLineMsg db 0xA, 0xD
+    newLineMsgLen equ $-newLineMsg
 
 section .bss
-    result  resb 1
+    result resb 1
