@@ -2,7 +2,6 @@ section	.text
     global _start
 
 _start:
-
     ; ax <- 9
     mov	ax,'9'
     sub ax, '0'
@@ -59,7 +58,6 @@ _start:
     int	0x80
 
 section .data
-
     qMsg db "The quotient is: "
     qLen equ $-qMsg
     rMsg db "The remainder is: "
@@ -68,6 +66,5 @@ section .data
     newLineLen equ $-newLineMsg
 
 segment .bss
-
     q resb 1
     l resb 1

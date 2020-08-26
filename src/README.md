@@ -9,3 +9,5 @@
 + [Constants](constants/README.md)
 + [Arithmetic Instructions](arithmetic-instructions/README.md)
 + [Logical Instructions](logical-instructions/README.md)
++ [Conditions](conditions/README.md)
++ [Loops](loops/README.md)

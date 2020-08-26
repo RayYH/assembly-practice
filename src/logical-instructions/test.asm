@@ -16,7 +16,6 @@ _start:
     jmp   exit_prog
 
 even:
-
     mov   eax, 4
     mov   ebx, 1
     mov   ecx, even_msg
@@ -24,7 +23,6 @@ even:
     int   0x80
 
 exit_prog:
-
     mov edx, newLineLen
     mov ecx, newLineMsg
     mov ebx, 1
@@ -35,12 +33,9 @@ exit_prog:
     int   0x80
 
 section   .data
-
-    even_msg    db  'Even Number!'
+    even_msg    db   'Even Number!'
     len1        equ  $ - even_msg
-
-    odd_msg     db  'Odd Number!'
+    odd_msg     db   'Odd Number!'
     len2        equ  $ - odd_msg
-
-    newLineMsg db 0xa, 0xd
-    newLineLen equ $-newLineMsg
+    newLineMsg  db   0xa, 0xd
+    newLineLen  equ  $-newLineMsg

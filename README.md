@@ -13,6 +13,8 @@ This repo uses NASM assembler. Notes and source code are mostly from [Assembly T
 + [Constants](src/constants/README.md)
 + [Arithmetic Instructions](src/arithmetic-instructions/README.md)
 + [Logical Instructions](src/logical-instructions/README.md)
++ [Conditions](src/conditions/README.md)
++ [Loops](src/loops/README.md)
 
 ## Run
 

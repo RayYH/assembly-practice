@@ -1,5 +1,6 @@
 section	.text
    global _start
+
 _start:
     ; writing the name 'Zara Ali'
     mov	edx, 9       ; message length
@@ -30,7 +31,7 @@ _start:
     int	0x80        ; call kernel
 
 section	.data
-name db 'Zara Ali '
-; new line
-newLineMsg db 0xa, 0xd
-newLineLen equ $-newLineMsg
+    name db 'Zara Ali '
+    ; new line
+    newLineMsg db 0xa, 0xd
+    newLineLen equ $-newLineMsg

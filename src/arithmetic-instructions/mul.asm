@@ -2,7 +2,6 @@ section	.text
    global _start
 
 _start:
-
     ; al <- 3
     mov al, '3'
     sub al, '0'
@@ -39,14 +38,10 @@ _start:
     int	0x80
 
 section .data
-
     msg db "The result is: "
     len equ $-msg
-
-    ; new line
     newLineMsg db 0xa, 0xd
     newLineLen equ $-newLineMsg
 
 segment .bss
-
     res resb 1

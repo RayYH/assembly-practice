@@ -1,7 +1,6 @@
 ; sys_calls
 SYS_EXIT  equ 1
 SYS_WRITE equ 4
-STDIN     equ 0
 STDOUT    equ 1
 
 section	 .text
@@ -30,11 +29,9 @@ _start:
     int 0x80
 
 section	 .data
-msg1 db	'Hello, programmers!', 0xA, 0xD
-len1 equ $ - msg1
-
-msg2 db 'Welcome to the world of '
-len2 equ $ - msg2
-
-msg3 db 'Linux assembly programming!', 0xA, 0xD
-len3 equ $ - msg3
+    msg1 db	'Hello, programmers!', 0xA, 0xD
+    len1 equ $ - msg1
+    msg2 db 'Welcome to the world of '
+    len2 equ $ - msg2
+    msg3 db 'Linux assembly programming!', 0xA, 0xD
+    len3 equ $ - msg3

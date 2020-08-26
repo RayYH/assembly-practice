@@ -28,12 +28,12 @@ _start:
     int	0x80
 
 segment	.data
-msg db 'Displaying 9 stars:', 0xa
-len equ $ - msg
-; loop count
-count equ 9
-; use times to generate a repeated string
-stars times count db '*'
-; new line
-newLineMsg db 0xa, 0xd
-newLineLen equ $-newLineMsg
+    msg db 'Displaying 9 stars:', 0xa
+    len equ $ - msg
+    ; loop count
+    count equ 9
+    ; use times to generate a repeated string
+    stars times count db '*'
+    ; new line
+    newLineMsg db 0xa, 0xd
+    newLineLen equ $-newLineMsg

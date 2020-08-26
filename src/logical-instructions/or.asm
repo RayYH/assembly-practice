@@ -1,9 +1,7 @@
 section .text
-
     global _start
 
 _start:
-
     mov eax, 4
     mov ebx, 1
     mov ecx, progMsg
@@ -36,12 +34,10 @@ _start:
     int 0x80
 
 section .data
-
-    progMsg         db "5 or 3 is: "
+    progMsg         db  "5 or 3 is: "
     progMsgLen      equ $ - progMsg
-    newLineMsg      db 0xA, 0xD
+    newLineMsg      db  0xA, 0xD
     newLineMsgLen   equ $ - newLineMsg
 
 section .bss
-
     result  resb 1

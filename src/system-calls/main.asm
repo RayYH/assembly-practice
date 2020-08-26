@@ -1,12 +1,13 @@
-; can also be used to output string
+; Initialized data
 section .data
-userMsg db 'Please enter a number(1 ~ 9999): ' ; Ask the user to enter a number
-lenUserMsg equ $-userMsg                       ; The length of the message
-desMsg db 'You have entered: '                 ; The description message
-lenDesMsg equ $-desMsg                         ; The length of the description message
+    userMsg db 'Please enter a number(1 ~ 9999): ' ; Ask the user to enter a number
+    lenUserMsg equ $-userMsg                       ; The length of the message
+    desMsg db 'You have entered: '                 ; The description message
+    lenDesMsg equ $-desMsg                         ; The length of the description message
 
-section .bss                                   ; Uninitialized data
-   num resb 5
+; Uninitialized data
+section .bss
+    num resb 5
 
 segment .text
     global _start

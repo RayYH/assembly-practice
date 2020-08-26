@@ -5,22 +5,16 @@ STDIN     equ 0
 STDOUT    equ 1
 
 segment .data
-
     msg1 db "Enter a digit (0~4)", 0xA, 0xD
     len1 equ $-msg1
-
     msg2 db "Please enter a second digit (0~4)", 0xA, 0xD
     len2 equ $-msg2
-
     msg3 db "The sum is: "
     len3 equ $-msg3
-
-    ; new line
     newLineMsg db 0xa, 0xd
     newLineLen equ $-newLineMsg
 
 segment .bss
-
     num1 resb 2
     num2 resb 2
     res  resb 1
@@ -91,7 +85,6 @@ _start:
     int 0x80
 
 exit:
-
     mov eax, SYS_EXIT
     xor ebx, ebx
     int 0x80
