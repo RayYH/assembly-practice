@@ -4,3 +4,4 @@
 + [Memory Segments](memory-segments/README.md)
 + [Registers](registers/README.md)
 + [System Calls](system-calls/README.md)
++ [Addressing Modes](addressing-modes/README.md)

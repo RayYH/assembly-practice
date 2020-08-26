@@ -1,6 +1,14 @@
 # Assembly Practice
 
-This repo uses NASM assembler.
+This repo uses NASM assembler. Notes and source code are mostly from [Assembly Tutorial](https://www.tutorialspoint.com/assembly_programming).
+
+## ToC
+
++ [Basic Syntax](src/basic-syntax/README.md)
++ [Memory Segments](src/memory-segments/README.md)
++ [Registers](src/registers/README.md)
++ [System Calls](src/system-calls/README.md)
++ [Addressing Modes](src/addressing-modes/README.md)
 
 ## Run
 
