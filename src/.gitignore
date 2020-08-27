@@ -2,3 +2,4 @@
 !*/*.asm
 !*/Makefile
 !*/*.md
+!*/*.sh

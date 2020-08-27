@@ -40,18 +40,18 @@ The operand destination could be an 8-bit, 16-bit or 32-bit operand.
 
 ```nasm
 segment .data
-   count dw  0
-   value db  15
+    count dw 0
+    value db 15
 
 segment .text
-   inc [count]
-   dec [value]
+    inc [count]
+    dec [value]
 
-   mov ebx, count
-   inc word [ebx]
+    mov ebx, count
+    inc word [ebx]
 
-   mov esi, value
-   dec byte [esi]
+    mov esi, value
+    dec byte [esi]
 ```
 
 ## The `ADD` and `SUB` Instructions
@@ -82,7 +82,7 @@ There are two instructions for multiplying binary data. The `MUL` (Multiply) ins
 The syntax for the `MUL`/`IMUL` instructions is as follows:
 
 ```nasm
-MUL  multiplier
+MUL multiplier
 IMUL multiplier
 ```
 
@@ -123,7 +123,7 @@ The `DIV` (Divide) instruction is used for unsigned data and the `IDIV` (Integer
 The format for the `DIV`/`IDIV` instruction:
 
 ```nasm
-DIV	 divisor
+DIV	divisor
 IDIV divisor
 ```
 

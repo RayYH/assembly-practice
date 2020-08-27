@@ -1,5 +1,6 @@
 DIRS = basic-syntax memory-segments registers system-calls addressing-modes \
-	constants arithmetic-instructions logical-instructions conditions loops
+	constants arithmetic-instructions logical-instructions conditions loops \
+	numbers
 
 all:
 	for i in $(DIRS); do \

@@ -2,25 +2,20 @@
 
 This repo uses NASM assembler. Notes and source code are mostly from [Assembly Tutorial](https://www.tutorialspoint.com/assembly_programming).
 
-## ToC
+## Environment
 
-+ [Basic Syntax](src/basic-syntax/README.md)
-+ [Memory Segments](src/memory-segments/README.md)
-+ [Registers](src/registers/README.md)
-+ [System Calls](src/system-calls/README.md)
-+ [Addressing Modes](src/addressing-modes/README.md)
-+ [Variables](src/variables/README.md)
-+ [Constants](src/constants/README.md)
-+ [Arithmetic Instructions](src/arithmetic-instructions/README.md)
-+ [Logical Instructions](src/logical-instructions/README.md)
-+ [Conditions](src/conditions/README.md)
-+ [Loops](src/loops/README.md)
+```bash
+$ uname -a
+Darwin Ray-MBP 19.6.0 Darwin Kernel Version 19.6.0: Sun Jul  5 00:43:10 PDT 2020; root:xnu-6153.141.1~9/RELEASE_X86_64 x86_64
+```
+
+This repo uses an i386-ubuntu container, but most code can also be executed in a x86_64 environment.
 
 ## Run
 
 ```bash
 > docker-compose up -d
-> docker exec -it assembly-practice /bin/bash
+> docker exec -it assembly-practice-i386 /bin/bash
 
 # build
 $ make
@@ -31,6 +26,8 @@ $ cd basic-syntax && ./main
 # clean
 $ make clean
 ```
+
+> `docker-compose-64.yml` provides x86_64 environment.
 
 ## License
 

@@ -1,8 +1,8 @@
-PROGS = main
+PROGS = aas add
 
 all: $(PROGS)
 
-%: 	%.asm
+%:	%.asm
 	nasm -f elf32 $@.asm -o $@.o && ld -s -o $@ $@.o
 
 clean:

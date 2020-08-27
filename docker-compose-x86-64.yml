@@ -1,8 +1,8 @@
 version: '3'
 services:
-  assembly-practice-i386:
-    image: rayyounghong/ubuntu-assembly:i386
-    container_name: assembly-practice-i386
+  assembly-practice:
+    image: rayyounghong/ubuntu-assembly:latest
+    container_name: assembly-practice
     volumes:
       - .:/code
     working_dir: /code/src
