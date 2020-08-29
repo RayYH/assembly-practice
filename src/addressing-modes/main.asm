@@ -2,8 +2,7 @@ section .text
     global _start
 
 _start:
-    ; writing the name 'Zara Ali'
-    mov edx, 9    ; message length
+    mov edx, 9    ; length of message('Zara Ali')
     mov ecx, name ; message to write
     mov	ebx, 1    ; file descriptor (stdout)
     mov	eax, 4    ; system call number (sys_write)

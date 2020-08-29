@@ -7,29 +7,30 @@ NASM provides various **define directives** for reserving storage space for vari
 The syntax for storage allocation statement for initialized data is:
 
 ```none
-[variable-name]    define-directive    initial-value   [,initial-value]...
+[variable-name] define-directive initial-value [,initial-value]...
 ```
-Where, `variable-name` is the identifier for each storage space. The assembler associates an offset value for each variable name defined in the data segment.
+
+Where, `variable-name` is *the identifier* for each storage space. The assembler associates an offset value for each variable name defined in the data segment.
 
 There are five basic forms of the **define directives**:
 
-| Directive   |      Purpose       |   Storage Space    |
-| :---------: | :----------------: | :----------------: |
-|    `DB`     |    Define Byte     |  allocates 1 byte  |
-|    `DW`     |    Define Word     | allocates 2 bytes  |
-|    `DD`     | Define Double Word | allocates 4 bytes  |
-|    `DQ`     |  Define Quad Word  | allocates 8 bytes  |
-|    `DT`     | Define Ten Bytes   | allocates 10 bytes |
+| Directive |      Purpose       |   Storage Space    |
+| :-------: | :----------------: | :----------------: |
+|   `db`    |    Define Byte     |  allocates 1 byte  |
+|   `dw`    |    Define Word     | allocates 2 bytes  |
+|   `dd`    | Define Double Word | allocates 4 bytes  |
+|   `dq`    |  Define Quad Word  | allocates 8 bytes  |
+|   `dt`    |  Define Ten Bytes  | allocates 10 bytes |
 
 Following are some examples of using define directives:
 
 ```nasm
-choice		    DB	'y'
-number		    DW	12345
-neg_number	    DW	-12345
-big_number	    DQ	123456789
-real_number1	DD	1.234
-real_number2	DQ	123.456
+choice db 'y'
+number dw 12345
+neg_number dw -12345
+big_number dq 123456789
+real_number1 dd 1.234
+real_number2 dq 123.456
 ```
 
 Please note that:
@@ -48,30 +49,30 @@ There are five basic forms of the reserve directives:
 
 | Directive |        Purpose        |
 | :-------: | :-------------------: |
-|  `RESB`   |    Reserve a Byte     |
-|  `RESW`   |    Reserve a Word     |
-|  `RESD`   | Reserve a Double Word |
-|  `RESQ`   |  Reserve a Quad Word  |
-|  `REST`   |  Reserve a Ten Bytes  |
+|  `resb`   |    Reserve a Byte     |
+|  `resw`   |    Reserve a Word     |
+|  `resd`   | Reserve a Double Word |
+|  `resq`   |  Reserve a Quad Word  |
+|  `rest`   |  Reserve a Ten Bytes  |
 
 ## Multiple Definitions
 
 You can have multiple data definition statements in a program. For example:
 
 ```nasm
-choice	  DB 	'Y'       ;ASCII of y = 79H
-number1	  DW 	12345 	  ;12345D = 3039H
-number2   DD    12345679  ;123456789D = 75BCD15H
+choice db 'Y'        ; ASCII of y = 79H
+number1 dw 12345     ; 12345D = 3039H
+number2 dd 12345679  ; 123456789D = 75BCD15H
 ```
 
 The assembler allocates contiguous memory for multiple variable definitions.
 
 ## Multiple Initializations
 
-The `TIMES` directive allows multiple initializations to the same value. For example, an array named marks of size 9 can be defined and initialized to zero using the following statement:
+The `times` directive allows multiple initializations to the same value. For example, an array named marks of size 9 can be defined and initialized to zero using the following statement:
 
 ```nasm
-marks  TIMES  9  DW  0
+marks times 9 dw 0
 ```
 
-The `TIMES` directive is useful in defining arrays and tables.
+The `times` directive is useful in defining arrays and tables.

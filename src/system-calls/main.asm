@@ -13,14 +13,14 @@ segment .text
     global _start
 
 _start:
+    ; ssize_t sys_write(unsigned int fd, const char * buf, size_t count)
     mov eax, 4
     mov ebx, 1
     mov ecx, userMsg
     mov edx, lenUserMsg
     int 0x80
 
-    ; Read and store the user input
-    ; sys_read(unsigned int fd, char __user * buf, size_t count)
+    ; ssize_t sys_read(unsigned int fd, char * buf, size_t count)
     mov eax, 3
     mov ebx, 2       ; fd, 2 means stdin
     mov ecx, num     ; buffer

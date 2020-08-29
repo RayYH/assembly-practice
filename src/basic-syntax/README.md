@@ -38,31 +38,31 @@ See [System calls](../system-calls/README.md).
 
 ## `db` register
 
-`DB`, `DW`, `DD`, `DQ`, `DT`, `DDQ`, and `DO` are used to declare initialized data in the output file. They can be invoked in a wide range of ways:
+`db`, `dw`, `dd`, `dq`, `dt`, `ddq`, and `do` are used to declare initialized data in the output file. They can be invoked in a wide range of ways:
 
-```
-db      0x55                ; just the byte 0x55
-db      0x55,0x56,0x57      ; three bytes in succession
-db      'a',0x55            ; character constants are OK
-db      'hello',13,10,'$'   ; so are string constants
-dw      0x1234              ; 0x34 0x12
-dw      'a'                 ; 0x41 0x00 (it's just a number)
-dw      'ab'                ; 0x41 0x42 (character constant)
-dw      'abc'               ; 0x41 0x42 0x43 0x00 (string)
-dd      0x12345678          ; 0x78 0x56 0x34 0x12
-dq      0x1122334455667788  ; 0x88 0x77 0x66 0x55 0x44 0x33 0x22 0x11
-ddq     0x112233445566778899aabbccddeeff00
+```none
+db 0x55                ; just the byte 0x55
+db 0x55,0x56,0x57      ; three bytes in succession
+db 'a',0x55            ; character constants are OK
+db 'hello',13,10,'$'   ; so are string constants
+dw 0x1234              ; 0x34 0x12
+dw 'a'                 ; 0x41 0x00 (it's just a number)
+dw 'ab'                ; 0x41 0x42 (character constant)
+dw 'abc'               ; 0x41 0x42 0x43 0x00 (string)
+dd 0x12345678          ; 0x78 0x56 0x34 0x12
+dq 0x1122334455667788  ; 0x88 0x77 0x66 0x55 0x44 0x33 0x22 0x11
+ddq 0x112233445566778899aabbccddeeff00
 ; 0x00 0xff 0xee 0xdd 0xcc 0xbb 0xaa 0x99
 ; 0x88 0x77 0x66 0x55 0x44 0x33 0x22 0x11
-do     0x112233445566778899aabbccddeeff00 ; same as previous
-dd      1.234567e20         ; floating-point constant
-dq      1.234567e20         ; double-precision float
-dt      1.234567e20         ; extended-precision float
+do 0x112233445566778899aabbccddeeff00 ; same as previous
+dd 1.234567e20         ; floating-point constant
+dq 1.234567e20         ; double-precision float
+dt 1.234567e20         ; extended-precision float
 ```
 
-`DT` does not accept numeric constants as operands, and `DDQ` does not accept float constants as operands. Any size larger than `DD` does not accept strings as operands.
+`dt` does not accept numeric constants as operands, and `ddq` does not accept float constants as operands. Any size larger than `dd` does not accept strings as operands.
 
-## `0xa`
+## `0xA`
 
 ```nasm
 resMsg db "Result: ", 0xA, 0xD

@@ -1,28 +1,28 @@
 # Numbers
 
-Numerical data is generally represented in binary system. Arithmetic instructions operate on binary data. When numbers are displayed on screen or entered from keyboard, they are in ASCII form. 
+Numerical data is generally represented in binary system. Arithmetic instructions operate on binary data. When numbers are displayed on screen or entered from keyboard, they are in ASCII form.
 
 Decimal numbers can be represented in two forms:
 
 + ASCII form
 + BCD or Binary Coded Decimal form
 
-### ASCII Representation
+## ASCII Representation
 
 In ASCII representation, decimal numbers are **stored as string of ASCII characters**. For example, the decimal value `1234` is stored as:
 
 ```none
-31	32	33	34H
+31 32 33 34H
 ```
 
 Where, `31H` is ASCII value for `1`, `32H` is ASCII value for `2`, and so on. There are four instructions for processing numbers in ASCII representation:
 
-+ `AAA` − ASCII Adjust After Addition
-+ `AAS` − ASCII Adjust After Subtraction
-+ `AAM` − ASCII Adjust After Multiplication
-+ `AAD` − ASCII Adjust Before Division
++ `aaa` − ASCII Adjust After Addition
++ `aas` − ASCII Adjust After Subtraction
++ `aam` − ASCII Adjust After Multiplication
++ `aad` − ASCII Adjust Before Division
 
-These instructions do not take any operands and assume the required operand to be in the `AL` register.
+These instructions do not take any operands and assume the required operand to be in the `al` register.
 
 ## BCD Representation
 
@@ -34,24 +34,24 @@ There are two types of BCD representation:
 In unpacked BCD representation, each byte stores the binary equivalent of a decimal digit. For example, the number 1234 is stored as:
 
 ```none
-01	02	03	04H
+01 02 03 04H
 ```
 
 There are two instructions for processing these numbers:
 
-+ `AAM` − ASCII Adjust After Multiplication
-+ `AAD` − ASCII Adjust Before Division
++ `aam` − ASCII Adjust After Multiplication
++ `aad` − ASCII Adjust Before Division
 
-The four ASCII adjust instructions, `AAA`, `AAS`, `AAM`, and `AAD`, can also be used with unpacked BCD representation. In packed BCD representation, each digit is stored using four bits. Two decimal digits are packed into a byte. For example, the number `1234` is stored as:
+The four ASCII adjust instructions, `aaa`, `aas`, `aam`, and `aad`, can also be used with unpacked BCD representation. In packed BCD representation, each digit is stored using four bits. Two decimal digits are packed into a byte. For example, the number `1234` is stored as:
 
 ```none
-12	34H
+12 34H
 ```
 
 There are two instructions for processing these numbers:
 
-+ `DAA` − Decimal Adjust After Addition
-+ `DAS` − decimal Adjust After Subtraction
++ `aaa` − Decimal Adjust After Addition
++ `das` − decimal Adjust After Subtraction
 
 There is no support for multiplication and division in packed BCD representation.
 

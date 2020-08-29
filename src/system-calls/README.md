@@ -22,18 +22,18 @@ The following table shows some system calls:
 |   5    | `sys_open`  |  `const char *`  |     `int`      |  `int`   |   -    |   -    |
 |   6    | `sys_close` |  `unsigned int`  |       -        |    -     |   -    |   -    |
 
-## Syscall Arguments
+## System Call Arguments
 
-The user-land program is expected to put the system call number in the `eax` register. The arguments for the syscall itself are to be placed in the remaining general purpose registers.
+The user-land program is expected to put the system call number in the `eax` register. The arguments for the sys call itself are to be placed in the remaining general purpose registers.
 
 One place this is documented is in a comment in [arch/x86/ia32/ia32entry.S](https://github.com/torvalds/linux/blob/v3.13/arch/x86/ia32/ia32entry.S#L378-L397):
 
 ```S
-/* 
- * Emulated IA32 system calls via int 0x80. 
+/*
+ * Emulated IA32 system calls via int 0x80.
  *
- * Arguments:	 
- * %eax	System call number.
+ * Arguments:
+ * %eax System call number.
  * %ebx Arg1
  * %ecx Arg2
  * %edx Arg3
@@ -42,23 +42,23 @@ One place this is documented is in a comment in [arch/x86/ia32/ia32entry.S](http
  * %ebp Arg6    [note: not saved in the stack frame, should not be touched]
  *
  * Notes:
- * Uses the same stack frame as the x86-64 version.	
+ * Uses the same stack frame as the x86-64 version.
  * All registers except %eax must be saved (but ptrace may violate that)
  * Arguments are zero extended. For system calls that want sign extension and
  * take long arguments a wrapper is needed. Most calls can just be called
  * directly.
- * Assumes it is only called from user space and entered with interrupts off.	
+ * Assumes it is only called from user space and entered with interrupts off.
  */
 ```
 
-## `RESB` & Friends: Declaring Uninitialized Data
+## `resb` & Friends: Declaring Uninitialized Data
 
-`RESB`, `RESW`, `RESD`, `RESQ`, `REST`, `RESO`, `RESY` and `RESZ` are designed to be used in the BSS section of a module: they declare *uninitialized* storage space. Each takes a single operand, which is the number of bytes, words, double words or whatever to reserve. 
+`resb`, `resw`, `resd`, `resq`, `rest`, `reso`, `resy` and `resz` are designed to be used in the `bss` section of a module: they declare *uninitialized* storage space. Each takes a single operand, which is the number of bytes, words, double words or whatever to reserve.
 
-```
-buffer:         resb    64              ; reserve 64 bytes 
-wordvar:        resw    1               ; reserve a word 
-realarray       resq    10              ; array of ten reals 
-ymmval:         resy    1               ; one YMM register 
-zmmvals:        resz    32              ; 32 ZMM registers
+```nasm
+buffer resb 64      ; reserve 64 bytes
+word_var resw 1     ; reserve a word
+real_array resq 10  ; array of ten reals
+ymm_val resy 1      ; one ymm register
+zmm_vals resz 32    ; 32 zmm registers
 ```

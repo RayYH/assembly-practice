@@ -2,34 +2,32 @@ section .text
     global _start
 
 _start:
-    ; since pop and push use 64-bit mode
-    ; we use r*x instead of e*x
-    mov rcx, 9
-    mov rax, '1'
+    mov ecx, 9
+    mov eax, '1'
 
 loop_label:
-    mov [num], rax
-    mov rax, 4
-    mov rbx, 1
-    push rcx
-    mov rcx, num
-    mov rdx, 1
+    mov [num], eax
+    mov eax, 4
+    mov ebx, 1
+    push ecx
+    mov ecx, num
+    mov edx, 1
     int 0x80
 
-    mov rax, [num]
-    sub rax, '0'
-    inc rax
-    add rax, '0'
-    pop rcx
+    mov eax, [num]
+    sub eax, '0'
+    inc eax
+    add eax, '0'
+    pop ecx
     loop loop_label
 
-    mov rax, 4
-    mov rbx, 1
-    mov rcx, newLine
-    mov rdx, newLineLen
+    mov eax, 4
+    mov ebx, 1
+    mov ecx, newLine
+    mov edx, newLineLen
     int 0x80
 
-    mov rax, 1
+    mov eax, 1
     int 0x80
 
 section .bss

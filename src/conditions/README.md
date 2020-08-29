@@ -2,64 +2,64 @@
 
 Conditional execution in assembly language is accomplished by several looping and branching instructions. These instructions can change the flow of control in a program. Conditional execution is observed in two scenarios:
 
-1. **Unconditional jump**: This is performed by the `JMP` instruction. Conditional execution often involves a transfer of control to the address of an instruction that does not follow the currently executing instruction. Transfer of control may be forward, to execute a new set of instructions or backward, to re-execute the same steps.
+1. **Unconditional jump**: This is performed by the `jmp` instruction. Conditional execution often involves a transfer of control to the address of an instruction that does not follow the currently executing instruction. Transfer of control may be forward, to execute a new set of instructions or backward, to re-execute the same steps.
 2. **Conditional jump**: This is performed by a set of jump instructions `j<condition>` depending upon the condition. The conditional instructions transfer the control by breaking the sequential flow, and they do it by changing the offset value in `IP`.
 
-## `CMP` Instruction
+## `cmp` Instruction
 
-The `CMP` instruction compares two operands. It is generally used in conditional execution. This instruction basically subtracts one operand from the other for comparing whether the operands are equal or not. It does not disturb the destination or source operands. It is used along with the conditional jump instruction for decision-making.
+The `cmp` instruction **compares two operands**. It is generally used in conditional execution. This instruction basically subtracts one operand from the other for comparing whether the operands are equal or not. It does not disturb the destination or source operands. It is used along with the conditional jump instruction for decision-making.
 
 ### Syntax
 
 ```nasm
-CMP destination, source
+cmp destination, source
 ```
 
-`CMP` compares two numeric data fields. The destination operand could be either in register or in memory. The source operand could be a constant (immediate) data, register or memory.
+`cmp` compares two numeric data fields. The destination operand could be either in register or in memory. The source operand could be a constant (immediate) data, register or memory.
 
 ### Example
 
 ```nasm
-CMP DX,	00  ; Compare the DX value with zero
-JE  L7      ; If yes, then jump to label L7
+cmp dx, 00 ; Compare the dx value with zero
+je L7      ; If yes, then jump to label L7
 ; ...
-L7:         ; ...  
+L7:        ; ...
 ```
 
-`CMP` is often used for comparing whether a counter value has reached the number of times a loop needs to be run. Consider the following typical condition:
+`cmp` is often used for comparing whether a counter value has reached the number of times a loop needs to be run. Consider the following typical condition:
 
 ```nasm
-INC	EDX
-CMP	EDX, 10	; Compares whether the counter has reached 10
-JLE	LP1     ; If it is less than or equal to 10, then jump to LP1
+inc edx
+cmp edx, 10 ; Compares whether the counter has reached 10
+jle LP1     ; If it is less than or equal to 10, then jump to LP1
 ```
 
 ## Unconditional Jump
 
-As mentioned earlier, this is performed by the `JMP` instruction. Conditional execution often involves a transfer of control to the address of an instruction that does not follow the currently executing instruction. Transfer of control may be forward, to execute a new set of instructions or backward, to re-execute the same steps.
+As mentioned earlier, this is performed by the `jmp` instruction. Conditional execution often involves a transfer of control to the address of an instruction that does not follow the currently executing instruction. Transfer of control may be forward, to execute a new set of instructions or backward, to re-execute the same steps.
 
-### Syntax
+### Syntax of Unconditional Jump
 
-The `JMP` instruction provides a label name where the flow of control is transferred immediately. The syntax of the `JMP` instruction is:
+The `jmp` instruction provides a label name where the flow of control is transferred immediately. The syntax of the `jmp` instruction is:
 
 ```nasm
-JMP	label
+jmp label
 ```
 
-### Example
+### Example of Unconditional Jump
 
-The following code snippet illustrates the `JMP` instruction:
+The following code snippet illustrates the `jmp` instruction:
 
 ```nasm
-MOV  AX, 00    ; Initializing AX to 0
-MOV  BX, 00    ; Initializing BX to 0
-MOV  CX, 01    ; Initializing CX to 1
+mov ax, 00    ; Initializing ax to 0
+mov bx, 00    ; Initializing bx to 0
+mov cx, 01    ; Initializing cx to 1
 
 L20:
-ADD  AX, 01    ; Increment AX
-ADD  BX, AX    ; Add AX to BX
-SHL  CX, 1     ; shift left CX, this in turn doubles the CX value
-JMP  L20       ; repeats the statements
+add ax, 01     ; Increment ax
+add bx, ax     ; Add ax to bx
+shl cx, 1      ; shift left cx, this in turn doubles the cx value
+jmp L20        ; repeats the statements
 ```
 
 ## Conditional Jump
@@ -70,50 +70,48 @@ Following are the conditional jump instructions used on signed data used for ari
 
 | Instruction |             Description             |   Flags tested   |
 | :---------: | :---------------------------------: | :--------------: |
-|  `JE`/`JZ`  |       Jump Equal or Jump Zero       |       `ZF`       |
-| `JNE`/`JNZ` |   Jump not Equal or Jump Not Zero   |       `ZF`       |
-| `JG`/`JNLE` | Jump Greater or Jump Not Less/Equal | `OF`, `SF`, `ZF` |
-| `JGE`/`JNL` | Jump Greater/Equal or Jump Not Less |    `OF`, `SF`    |
-| `JL`/`JNGE` | Jump Less or Jump Not Greater/Equal |    `OF`, `SF`    |
-| `JLE`/`JNG` | Jump Less/Equal or Jump Not Greater | `OF`, `SF`, `ZF` |
+|  `je`/`jz`  |       Jump Equal or Jump Zero       |       `zf`       |
+| `jne`/`jnz` |   Jump not Equal or Jump Not Zero   |       `zf`       |
+| `jg`/`jnle` | Jump Greater or Jump Not Less/Equal | `of`, `sf`, `zf` |
+| `jge`/`jnl` | Jump Greater/Equal or Jump Not Less |    `of`, `sf`    |
+| `jl`/`jnge` | Jump Less or Jump Not Greater/Equal |    `of`, `sf`    |
+| `jle`/`jng` | Jump Less/Equal or Jump Not Greater | `of`, `sf`, `zf` |
 
 Following are the conditional jump instructions used on unsigned data used for logical operations:
 
 | Instruction |            Description             | Flags tested |
 | :---------: | :--------------------------------: | :----------: |
-|  `JE`/`JZ`  |      Jump Equal or Jump Zero       |     `ZF`     |
-| `JNE`/`JNZ` |  Jump not Equal or Jump Not Zero   |     `ZF`     |
-| `JA`/`JNBE` | Jump Above or Jump Not Below/Equal |  `CF`, `ZF`  |
-| `JAE`/`JNB` | Jump Above/Equal or Jump Not Below |     `CF`     |
-| `JB`/`JNAE` | Jump Below or Jump Not Above/Equal |     `CF`     |
-| `JBE`/`JNA` | Jump Below/Equal or Jump Not Above |  `AF`, `CF`  |
+|  `je`/`jz`  |      Jump Equal or Jump Zero       |     `zf`     |
+| `jne`/`jnz` |  Jump not Equal or Jump Not Zero   |     `zf`     |
+| `ja`/`jnbe` | Jump Above or Jump Not Below/Equal |  `cf`, `zf`  |
+| `jae`/`jnb` | Jump Above/Equal or Jump Not Below |     `cf`     |
+| `jb`/`jnae` | Jump Below or Jump Not Above/Equal |     `cf`     |
+| `jbe`/`jna` | Jump Below/Equal or Jump Not Above |  `af`, `cf`  |
 
 The following conditional jump instructions have special uses and check the value of flags:
 
 | Instruction |            Description            | Flags tested |
 | :---------: | :-------------------------------: | :----------: |
-|   `JXCZ`    |       Jump if `CX` is Zero        |     none     |
-|    `JC`     |           Jump If Carry           |     `CF`     |
-|    `JNC`    |         Jump If No Carry          |     `CF`     |
-|    `JO`     |         Jump If Overflow          |     `OF`     |
-|    `JNO`    |        Jump If No Overflow        |     `OF`     |
-| `JP`/`JPE`  |  Jump Parity or Jump Parity Even  |     `PF`     |
-| `JNP`/`JPO` | Jump No Parity or Jump Parity Odd |     `PF`     |
-|    `JS`     |    Jump Sign (negative value)     |     `SF`     |
-|    `JNS`    |   Jump No Sign (positive value)   |     `SF`     |
+|   `jxcz`    |       Jump if `cx` is Zero        |     none     |
+|    `jc`     |           Jump If Carry           |     `cf`     |
+|    `jnc`    |         Jump If No Carry          |     `cf`     |
+|    `jo`     |         Jump If Overflow          |     `of`     |
+|    `jno`    |        Jump If No Overflow        |     `of`     |
+| `jp`/`jpe`  |  Jump Parity or Jump Parity Even  |     `pf`     |
+| `jnp`/`jpo` | Jump No Parity or Jump Parity Odd |     `pf`     |
+|    `js`     |    Jump Sign (negative value)     |     `sf`     |
+|    `jns`    |   Jump No Sign (positive value)   |     `sf`     |
 
 The syntax for the `J<condition>` set of instructions:
 
 ```nasm
-CMP	AL, BL
-JE	EQUAL
-CMP	AL, BH
-JE	EQUAL
-CMP	AL, CL
-JE	EQUAL
+cmp al, bl
+je EQUAL
+cmp al, BH
+je EQUAL
+cmp al, cl
+je EQUAL
 
 NON_EQUAL: ;...
 EQUAL:     ;...
 ```
-
-
