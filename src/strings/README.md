@@ -8,14 +8,14 @@ Generally, we specify the length of the string by either of the two ways:
 We can store the string length explicitly by using the `$` location counter symbol that represents **the current value of the location counter**. In the following example:
 
 ```nasm
-msg db 'Hello, world!', 0xa
+msg db "Hello World!", 0xA
 len equ $ - msg
 ```
 
 `$` points to the byte after the last character of the string variable `msg`. Therefore, `$ - msg` gives the length of the string. We can also write:
 
 ```nasm
-msg db 'Hello, world!', 0xa
+msg db "Hello World!", 0xA
 len equ 13
 ```
 
