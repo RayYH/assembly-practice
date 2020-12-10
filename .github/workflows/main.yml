@@ -8,7 +8,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # I don't think it's necessary to support windows-latest, macos-latest
         operating-system: [ ubuntu-latest ]
     name: Nasm Test on ${{ matrix.operating-system }}
     steps:
